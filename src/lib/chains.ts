@@ -1,7 +1,7 @@
 import environment from '@environment'
 import { ADDRESS_ZERO } from '@lib/contract'
 import type { Address, PublicClient } from 'viem'
-import { createPublicClient, fallback, http, webSocket } from 'viem'
+import { createPublicClient, fallback, http } from 'viem'
 import * as viemChains from 'viem/chains'
 
 const { LLAMANODES_API_KEY } = environment
@@ -55,7 +55,7 @@ export const chains = [
     client: createPublicClient({
       chain: viemChains.arbitrum,
       transport: fallback([
-        webSocket(getLlamaNodesUrl('wss://arbitrum.llamarpc.com')),
+        // webSocket(getLlamaNodesUrl('wss://arbitrum.llamarpc.com')),
         http('https://rpc.ankr.com/arbitrum', { batch: { wait: 0, batchSize: 5_000 } }),
         http('https://arb1.arbitrum.io/rpc', { batch: { batchSize: 1_000, wait: 10 } }),
       ]),
@@ -112,7 +112,7 @@ export const chains = [
     client: createPublicClient({
       chain: viemChains.base,
       transport: fallback([
-        webSocket(getLlamaNodesUrl('wss://base.llamarpc.com')),
+        // webSocket(getLlamaNodesUrl('wss://base.llamarpc.com')),
         http('https://base-mainnet.public.blastapi.io', { batch: { wait: 0, batchSize: 5_000 } }),
         http('https://mainnet.base.org', { batch: { wait: 0, batchSize: 1_000 } }),
       ]),
@@ -132,7 +132,7 @@ export const chains = [
     client: createPublicClient({
       chain: viemChains.bsc,
       transport: fallback([
-        webSocket(getLlamaNodesUrl('wss://binance.llamarpc.com')),
+        // webSocket(getLlamaNodesUrl('wss://binance.llamarpc.com')),
         http('https://bsc-dataseed.binance.org/', { batch: { batchSize: 1_000, wait: 10 } }),
         http('https://bsc-dataseed1.ninicoin.io/', { batch: { batchSize: 1_000, wait: 10 } }),
       ]),
@@ -171,7 +171,7 @@ export const chains = [
     client: createPublicClient({
       chain: viemChains.mainnet,
       transport: fallback([
-        webSocket(getLlamaNodesUrl('wss://eth.llamarpc.com')),
+        // webSocket(getLlamaNodesUrl('wss://eth.llamarpc.com')),
         http('https://rpc.ankr.com/eth', { batch: { wait: 0, batchSize: 5_000 } }),
         http('https://eth-mainnet.gateway.pokt.network/v1/5f3453978e354ab992c4da79', {
           batch: { wait: 10, batchSize: 1_000 },
@@ -311,7 +311,7 @@ export const chains = [
     client: createPublicClient({
       chain: viemChains.optimism,
       transport: fallback([
-        webSocket(getLlamaNodesUrl('wss://optimism.llamarpc.com')),
+        // webSocket(getLlamaNodesUrl('wss://optimism.llamarpc.com')),
         http('https://rpc.ankr.com/optimism', { batch: { wait: 0, batchSize: 5_000 } }),
         http('https://mainnet.optimism.io', { batch: { batchSize: 1_000, wait: 10 } }),
       ]),
@@ -331,7 +331,7 @@ export const chains = [
     client: createPublicClient({
       chain: viemChains.polygon,
       transport: fallback([
-        webSocket(getLlamaNodesUrl('wss://polygon.llamarpc.com')),
+        // webSocket(getLlamaNodesUrl('wss://polygon.llamarpc.com')),
         http('https://rpc.ankr.com/polygon', { batch: { wait: 0, batchSize: 5_000 } }),
         http('https://polygon-rpc.com/', { batch: { batchSize: 1_000, wait: 10 } }),
         http('https://rpc-mainnet.maticvigil.com/', { batch: { batchSize: 1_000, wait: 10 } }),
